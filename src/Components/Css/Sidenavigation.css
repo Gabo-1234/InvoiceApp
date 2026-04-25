@@ -1,11 +1,3 @@
-#root {
-  --nav-bg: #373b53;
-
-  --primary-1: #7c5dfa;
-  --primary-2: #9277ff;
-}
-
-
 .side-nav {
   width: clamp(46px, 24vw, 96px);
   border-bottom-right-radius: 20px;

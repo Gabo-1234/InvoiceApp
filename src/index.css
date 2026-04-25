@@ -1,5 +1,8 @@
 #root {
     background-color: var(--Main-Bg);
+     --nav-bg: #373b53;
+     --primary-1: #7c5dfa;
+     --primary-2: #9277ff;
 }
 
 .Light-Bg {

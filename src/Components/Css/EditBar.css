@@ -1,0 +1,17 @@
+.EditBar {
+    height: 100%;
+    width: calc(719px - 103px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    gap: 20px;
+}
+
+input {
+    width: 504px;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid #DFE3FA;
+}

@@ -1,3 +1,4 @@
+import "../Css/SideNavigation.css"
 
 export default function SideNav() {
     return (
