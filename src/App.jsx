@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HeadNavigation from "./Components/Navigations/HeadNavigation";
-import SideNavigation from "./Components/Navigations/SideNavigation";
+import SideNav from "./Components/Navigations/SideNavigation";
 import "./index.css";
-
+import "./Components/Css/SideNavigation.css"
 function App() {
 
   return (
     <>
       <BrowserRouter>
         <HeadNavigation />
-        <SideNavigation />
+        <SideNav/>
         <Routes>
           <Route path="/" element={<h1>Home</h1>} />
           <Route path="/Invoice/:id" element={<h1>InvoicePage</h1>} />

@@ -1,0 +1,86 @@
+#root {
+  --nav-bg: #373b53;
+
+  --primary-1: #7c5dfa;
+  --primary-2: #9277ff;
+}
+
+
+.side-nav {
+  width: clamp(46px, 24vw, 96px);
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 100vh;
+  background-color: var(--nav-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-logo {
+  background-color: var(--primary-1);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-bottom-right-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.main-logo::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  aspect-ratio: 1 / .5;
+  background-color: var(--primary-2);
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.main-logo svg {
+  z-index: 1;
+}
+
+.mode-pfp {
+  width: 100%;
+  aspect-ratio: 1 / 1.5;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px;
+  gap: 24px;
+}
+
+.mode-pfp svg {
+  padding-bottom: 14px;
+  cursor: pointer;
+}
+
+.pfp-icon {
+  width: clamp(40px, 60%, 80px);
+  aspect-ratio: 1 / 1;
+  background-image: url(./blackboy.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 800px;
+  position: relative;
+}
+
+.pfp-icon::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 2px;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #494e6e;
+}
