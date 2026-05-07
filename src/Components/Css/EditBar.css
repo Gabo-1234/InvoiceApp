@@ -1,17 +1,175 @@
 .EditBar {
-    height: 100%;
-    width: calc(719px - 103px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #fff;
-    gap: 20px;
+  height: 100%;
+  width: calc(719px - 103px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  gap: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-sizing: border-box;
 }
 
-input {
-    width: 504px;
-    height: 48px;
-    border-radius: 4px;
-    border: 1px solid #DFE3FA;
+.EditBar span {
+  color: #7e88c3;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.Option-bar {
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  height: 191px;
+  width: 240px;
+  position: absolute;
+  row-gap: 15px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #dfe3fa;
+}
+
+.Option-bar ul {
+  margin-left: 14px;
+  font-family: "League Spartan";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  cursor: pointer;
+}
+
+.defaultOption {
+  font-family: "League Spartan";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+}
+
+.defaultOptionDiv {
+   background-color: #fff;
+  width: 240px;
+  height: 48px;
+  border: 1px solid #dfe3fa;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.Open {
+  transform: rotate(180deg);
+}
+
+.Option-bar ul:hover {
+  color: #7c5dfa;
+}
+
+.Street-AD {
+  display: flex;
+  flex-direction: column;
+}
+
+.Bill-to div:not(.Three-row) {
+  display: flex;
+  flex-direction: column;
+}
+
+.Bill-info > *,
+.Bill-to > * {
+  display: flex;
+}
+
+.Bill-to {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Bill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Three-row div:not(.defaultOptionDiv) {
+  width: 152px;
+}
+
+.Three-row {
+  gap: 25px;
+}
+
+.Three-row input {
+  width: 152px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #dfe3fa;
+}
+
+.h4 {
+  font-family: "League Spartan";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #7c5dfa;
+}
+
+label {
+  font-family: "League Spartan";
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: -0.1px;
+  color: #7e88c3;
+}
+
+.DateNTerms {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Add-new {
+  width: 504px;
+  height: 48px;
+  opacity: 1;
+  border-radius: 24px;
+  background-color: #f9fafe;
+  border: none;
+  font-family: "League Spartan";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  text-align: center;
+  color: #7e88c3;
+}
+
+select {
+  width: 240px;
+  height: 48px;
+}
+
+input:not([type="date"], .Three-row input) {
+  width: 504px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #dfe3fa;
 }

@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
+
 #root {
-    background-color: var(--Main-Bg);
+    background-color: #f5f5f5;
      --nav-bg: #373b53;
      --primary-1: #7c5dfa;
      --primary-2: #9277ff;
+     display: flex;
+     font-family: "League Spartan";
 }
 
 .Light-Bg {

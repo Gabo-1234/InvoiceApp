@@ -2,7 +2,7 @@
   width: clamp(46px, 24vw, 96px);
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  height: 100vh;
+  height: stretch;
   background-color: var(--nav-bg);
   overflow: hidden;
   display: flex;
