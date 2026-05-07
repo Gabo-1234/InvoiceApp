@@ -4,12 +4,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
   background-color: #fff;
   gap: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   box-sizing: border-box;
+}
+
+.EditBar h2,
+.EditBar .CancelNSave {
+  align-self: stretch;
 }
 
 .EditBar span {
@@ -22,7 +28,7 @@ li {
   margin: 0;
 }
 
-.hidden {
+.Option-bar.hidden {
   display: none;
 }
 
@@ -37,6 +43,10 @@ li {
   justify-content: center;
   display: flex;
   flex-direction: column;
+}
+
+h2 {
+  margin-left: 32px;
 }
 
 hr {
@@ -60,16 +70,82 @@ hr {
   font-size: 15px;
   line-height: 15px;
   letter-spacing: -0.25px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.Date-Term {
+  display: flex;
+  gap: 20px;
+}
+
+.Date {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  border-radius: 4px;
+}
+
+.Cancel {
+  width: 96px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: #f9fafe;
+  border: none;
+  cursor: pointer;
+  font-family: "League Spartan";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  text-align: center;
+  color: #7e88c3;
+}
+
+.Save {
+  width: 138px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: #7c5dfa;
+  border: none;
+  color: #fff;
+  font-family: "League Spartan";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  cursor: pointer;
+}
+
+.CancelNSave {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.Invoice-Date {
+  width: 240px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #dfe3fa;
 }
 
 .defaultOptionDiv {
-   background-color: #fff;
+  background-color: #fff;
+  cursor: pointer;
   width: 240px;
   height: 48px;
   border: 1px solid #dfe3fa;
   border-radius: 4px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+#arrow {
+  transition: transform 0.3s ease;
+  margin-right: 15px;
 }
 
 .Open {
@@ -144,6 +220,12 @@ label {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
+}
+
+.Project-des {
+  display: flex;
+  flex-direction: column;
 }
 
 .Add-new {

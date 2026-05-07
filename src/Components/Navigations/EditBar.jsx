@@ -5,7 +5,7 @@ import {
   MaxDate,
 } from "../Functions/FormChecks";
 import "../Css/EditBar.css";
-import { NewItemMake } from "../Functions/FormFunctions";
+import { NewItemMake, selectedOption } from "../Functions/FormFunctions";
 import { showOptions } from "../Functions/FormFunctions";
 
 const EditBar = () => {
@@ -83,10 +83,11 @@ const EditBar = () => {
           </div>
         </div>
         <div className="DateNTerms">
-          <div className="Three-row" style={{ display: "flex" }}>
-            <div>
+          <div className="Date-Term" style={{ display: "flex" }}>
+            <div className="Date">
               <label htmlFor="Invoice-Date">Invoice Date</label>
               <input
+                className="Invoice-Date"
                 type="date"
                 id="Invoice-Date"
                 min="2000-01-01"
@@ -102,12 +103,11 @@ const EditBar = () => {
                 defaultValue=""
                 onSubmit={isRequired}
               >
-                <div className="defaultOptionDiv">
+                <div className="defaultOptionDiv" onClick={showOptions}>
                   <ul
                     className="defaultOption"
                     value=""
                     disabled
-                    onClick={showOptions}
                   >
                     Net 30 Days
                   </ul>
@@ -117,7 +117,7 @@ const EditBar = () => {
                     viewBox="0 0 10 7"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="Open"
+                    id="arrow"
                   >
                     <path
                       d="M0.707092 0.707153L4.93499 4.93505L9.1629 0.707153"
@@ -126,19 +126,19 @@ const EditBar = () => {
                     />
                   </svg>
                 </div>
-                <div className="Option-bar">
-                  <ul value="Net 1">Net 1 Days</ul>
+                <div className="Option-bar hidden" onClick={selectedOption}>
+                  <ul data-value="Net 1">Net 1 Days</ul>
                   <hr />
-                  <ul value="Net 7">Net 7 Days</ul>
+                  <ul data-value="Net 7">Net 7 Days</ul>
                   <hr />
-                  <ul value="Net 14">Net 14 Days</ul>
+                  <ul data-value="Net 14">Net 14 Days</ul>
                   <hr />
-                  <ul value="Net 30">Net 30 Days</ul>
+                  <ul data-value="Net 30">Net 30 Days</ul>
                 </div>
               </li>
             </div>
           </div>
-          <div>
+          <div className="Project-des">
             <label htmlFor="Project-Description">Project Description</label>
             <input
               type="text"
@@ -153,8 +153,10 @@ const EditBar = () => {
             + Add New Item
           </button>
         </div>
-        <button>Cancel</button>
-        <button>Save Changes</button>
+        <div className="CancelNSave">
+        <button className="Cancel">Cancel</button>
+        <button className="Save">Save Changes</button>
+        </div>
       </form>
     </>
   );
