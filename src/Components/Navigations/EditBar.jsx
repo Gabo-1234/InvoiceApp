@@ -158,6 +158,8 @@ const EditBar = () => {
         <button className="Save">Save Changes</button>
         </div>
       </form>
+      <div className="Black-Bg">
+      </div>
     </>
   );
 };
