@@ -1,10 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=League+Spartan:100,200,300,regular,500,600,700,800,900);
 
 #root {
-    font-family: 'League Spartan';
-    background-color: var(--Main-Bg);
-    display: flex;
-    justify-content: space-between;
+    background-color: #f5f5f5;
+     --nav-bg: #373b53;
+     --primary-1: #7c5dfa;
+     --primary-2: #9277ff;
+     display: flex;
+     font-family: "League Spartan";
+}
+
+.Light-Bg {
+    --Main-Bg: #f5f5f5;
+}
+
+.Dark-Bg {
+    --Main-Bg: #141625;
 }
 
 * {
@@ -12,4 +22,3 @@
     padding: 0;
     box-sizing: border-box;
 }
-

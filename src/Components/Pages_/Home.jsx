@@ -1,9 +1,9 @@
 import InvoicesHeader from "../InvoicesHeader";
 import Arrow from "../logo/ArrowIcon";
 import NoInvLogo from "../logo/NoInvLogo";
-import Link from "react-router-dom"
+import { Link } from "react-router-dom"
 
-export default function Home({ invoicesObject }) {
+function Home({ invoicesObject }) {
     return (
         <>  
             <div className="invoices-container">
@@ -32,7 +32,7 @@ export default function Home({ invoicesObject }) {
                                                     : "#373B53"
                                         let bgColor = colorContent + "1A";
                                         return (
-                                            <Link  key={p.id} className="invoice__box">
+                                            <Link to={`/invoice/${p.id}`} key={p.id} className="invoice__box">
                                                 <div className="inv-wrapper2">
                                                     <p className="tag"><span className="diez">#</span>{p.tag}</p>
                                                     <p className="date">Due {p.due}</p>
@@ -82,3 +82,5 @@ export default function Home({ invoicesObject }) {
         </>
     )
 }
+
+export default Home

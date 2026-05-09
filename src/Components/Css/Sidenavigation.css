@@ -1,22 +1,15 @@
-#root {
-  --nav-bg: #373b53;
-
-  --primary-1: #7c5dfa;
-  --primary-2: #9277ff;
-}
-
-
 .side-nav {
   width: clamp(46px, 24vw, 96px);
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  height: 100vh;
+  height: stretch;
   background-color: var(--nav-bg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
 }
 
 .main-logo {
@@ -60,6 +53,7 @@
 }
 
 .mode-icon {
+  margin-bottom: 16px;
   width: 20px;
   height: 20px;
 }

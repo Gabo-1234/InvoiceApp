@@ -19,6 +19,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: clamp(24px, 20vh, 70px) clamp(42px, 25vw, 150px);
+    padding-left: calc(clamp(46px, 24vw, 96px) + clamp(42px, 25vw, 150px));
     box-sizing: border-box;
     flex-direction: column;
 }
@@ -154,6 +155,11 @@ body {
     box-sizing: border-box;
     overflow: hidden;
     flex-shrink: 0;
+}
+
+.invoice_box,
+.invoice_box * {
+    text-decoration: none;
 }
 
 .inv__price {

@@ -7,6 +7,7 @@ import Home from "./Components/Pages_/Home";
 
 import { useState } from "react";
 
+import EditBar from "./Components/Navigations/EditBar.jsx"
 function App() {
   const [invoices, setInvoices] = useState([
     { id: 1, tag: "RT3080", condition: "paid", price: 489.00, author: "Jensen Huang", due: "19 Aug 2021" },
@@ -23,6 +24,7 @@ function App() {
         <SideNav />
         <Routes>
           <Route path="/" element={<Home invoicesObject={invoices} />} />
+          <Route path="/" element={<EditBar />} />
           <Route path="/Invoice/:id" element={<h1>InvoicePage</h1>} />
         </Routes>
       </BrowserRouter>
