@@ -1,4 +1,4 @@
-export default function () {
+export default function NoInvLogo() {
     return (
         <>
             <svg width="242" height="200" viewBox="0 0 242 200" fill="none" xmlns="http://www.w3.org/2000/svg">

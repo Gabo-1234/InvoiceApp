@@ -4,11 +4,11 @@ import "./index.css";
 import "./Components/Css/SideNavigation.css"
 import "./Components/Css/Invoices.css"
 import Home from "./Components/Pages_/Home";
+import InvoicePage from "./Components/Pages_/InvoicePage";
 
 import { useState } from "react";
 
-import EditBar from "./Components/Navigations/EditBar.jsx"
-function App() {
+const App = () => {
   const [invoices, setInvoices] = useState([
     { id: 1, tag: "RT3080", condition: "paid", price: 489.00, author: "Jensen Huang", due: "19 Aug 2021" },
     { id: 2, tag: "XM9141", condition: "pending", price: 320.50, author: "Elon Musk", due: "21 Aug 2021" },
@@ -19,16 +19,13 @@ function App() {
   ]);
 
   return (
-    <>
-      <BrowserRouter>
-        <SideNav />
-        <Routes>
-          <Route path="/" element={<Home invoicesObject={invoices} />} />
-          <Route path="/" element={<EditBar />} />
-          <Route path="/Invoice/:id" element={<h1>InvoicePage</h1>} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <SideNav />
+      <Routes>
+        <Route path="/" element={<Home invoicesObject={invoices} />} />
+        <Route path="/invoice/:id" element={<InvoicePage invoices={invoices} />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
