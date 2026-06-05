@@ -1,18 +1,52 @@
-.EditBar {
-  height: 100%;
+.EditBarOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 90px;
+  background: transparent;
+  z-index: 999;
+  overflow: hidden;
+}
 
+.EditBarBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.EditBar {
+  position: relative;
+  min-width: 0;
+  width: min(620px, calc(100vw - 163px));
+  max-width: 620px;
+  max-height: 100vh;
+  padding: 36px 32px;
+  background: #ffffff;
+  color: #0f172a;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: var(--EditBar-Bg);
-  gap: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  gap: 24px;
   box-sizing: border-box;
-  position: relative;
-  z-index: 1;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  border-radius: 0 24px 24px 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+}
+.EditBar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.EditBar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.EditBar::-webkit-scrollbar-thumb {
+  background: rgba(124, 93, 250, 0.45);
+  border-radius: 999px;
 }
 
 .EditBar h2,
@@ -20,145 +54,202 @@
   align-self: stretch;
 }
 
-.EditBar span {
-  color: #7e88c3;
-}
-
-li {
-  list-style: none;
+.details-group {
+  border: none;
+  border-radius: 0;
+  background: transparent;
   padding: 0;
-  margin: 0;
-  background-color: var(--optionBar-Bg);
+  margin-bottom: 32px;
 }
 
-.Option-bar.hidden {
-  display: none;
+.details-summary {
+  font-family: "League Spartan";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: #7c5dfa;
+  margin-bottom: 16px;
+  display: block;
 }
 
-.Option-bar {
-  border-radius: 8px;
-  background-color: var(--option-bg);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
-  height: 191px;
-  width: 240px;
-  position: absolute;
-  row-gap: 15px;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
+.EditBar h2 {
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #0f172a;
 }
+
+.EditBar h2 span {
+  color: #7c5dfa;
+}
+
+
 
 hr {
   width: 100%;
-  border: 1px solid #dfe3fa;
+  border: 1px solid #e5e7eb;
 }
 
-.Option-bar ul {
-  margin-left: 14px;
-  font-family: "League Spartan";
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 15px;
-  letter-spacing: -0.25px;
-  cursor: pointer;
-}
-
-.defaultOption {
-  font-family: "League Spartan";
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 15px;
-  letter-spacing: -0.25px;
-  cursor: pointer;
-  margin-left: 15px;
-  border: var(--inputBorder);
-  background-color: var(--option-bg);
-}
 
 .Date-Term {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .Date {
   display: flex;
   flex-direction: column;
-  width: 240px;
-  border-radius: 4px;
+  width: min(240px, 100%);
+  max-width: 100%;
 }
 
-.Cancel {
-  width: 96px;
+.Cancel,
+.Draft,
+.Save,
+.Send {
+  min-width: 120px;
   height: 48px;
   border-radius: 24px;
-  background-color: var(--cancelBtn-bg);
-  border: none;
-  cursor: pointer;
   font-family: "League Spartan";
   font-weight: 700;
   font-size: 15px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  text-align: center;
-  color: #7e88c3;
+  border: none;
+  cursor: pointer;
 }
 
-.Save {
-  width: 138px;
-  height: 48px;
-  border-radius: 24px;
-  background-color: var(--Btn-bg);
-  border: none;
-  color: #fff;
-  font-family: "League Spartan";
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 15px;
-  letter-spacing: -0.25px;
-  cursor: pointer;
+.Cancel,
+.Draft {
+  background: #ffffff;
+  color: #7c5dfa;
+  border: 1px solid #e5e7eb;
+}
+
+.Save,
+.Send {
+  background: #7c5dfa;
+  color: #ffffff;
 }
 
 .CancelNSave {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   justify-content: flex-end;
-  margin-right: 30px;
+  margin-right: 0;
 }
 
 .Invoice-Date {
-  width: 240px;
+  width: min(240px, 100%);
+  max-width: 100%;
   height: 48px;
-  border-radius: 4px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  padding: 0 12px;
 }
 
-.defaultOptionDiv {
-  background-color: var(--option-bg);
-  cursor: pointer;
-  width: 240px;
+select {
+  width: 100%;
+  max-width: 100%;
   height: 48px;
-  border: 1px solid #dfe3fa;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  padding: 0 14px;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: inherit;
 }
 
-#arrow {
-  transition: transform 0.3s ease;
-  margin-right: 15px;
-}
-
-.Open {
-  transform: rotate(180deg);
-}
-
-.Option-bar ul:hover {
-  color: #7c5dfa;
-}
-
-.Street-AD {
+.Street-AD,
+.Bill-to,
+.Project-des,
+.Item-list,
+.DateNTerms {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+
+.item-list__header,
+.item-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 2fr) 80px 100px 100px 40px;
+  gap: 16px;
+  align-items: center;
+}
+
+.item-list__header {
+  color: #7c5dfa;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.1px;
+  text-transform: uppercase;
+}
+
+.item-row {
+  padding: 18px;
+  border-radius: 16px;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+}
+
+.item-row__desc,
+.item-row__qty,
+.item-row__price,
+.item-row__total {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-row__desc input,
+.item-row__qty input,
+.item-row__price input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 12px 14px;
+  min-height: 48px;
+}
+
+.item-row__total {
+  justify-content: center;
+  min-height: 48px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  color: #0f172a;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-row__remove {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  color: #7c5dfa;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 780px) {
+  .item-list__header,
+  .item-row {
+    grid-template-columns: 1fr;
+  }
+  .item-row__remove {
+    justify-self: flex-end;
+  }
 }
 
 .Bill-to div:not(.Three-row) {
@@ -166,15 +257,8 @@ hr {
   flex-direction: column;
 }
 
-.Bill-info > *,
-.Bill-to > * {
-  display: flex;
-}
-
 .Bill-to {
   gap: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
 .Bill-info {
@@ -183,29 +267,40 @@ hr {
   gap: 20px;
 }
 
-.Three-row div:not(.defaultOptionDiv) {
-  width: 152px;
-}
-
 .Three-row {
-  gap: 25px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-h2 {
-  color: var(--h2-color);
+.Three-row div {
+  width: 152px;
 }
 
 .Three-row input {
   width: 152px;
   height: 48px;
-  border-radius: 4px;
-  color: #fff;
+  border-radius: 6px;
+  padding: 0 14px;
+  border: 1px solid #e5e7eb;
+  color: #0f172a;
+  background: #ffffff;
 }
 
-input {
-  background-color: var(--inputs-bg);
-  color: #fff;
-  border: var(--inputBorder);
+input,
+select {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 12px;
+  padding: 0 14px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: #94a3b8;
 }
 
 .h4 {
@@ -223,14 +318,40 @@ label {
   font-size: 13px;
   line-height: 15px;
   letter-spacing: -0.1px;
-  color: #7e88c3;
+  color: #475569;
 }
 
-.DateNTerms {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+.Add-new {
+  width: 100%;
+  height: 48px;
+  border-radius: 24px;
+  background-color: transparent;
+  border: 1px solid #e5e7eb;
+  font-family: "League Spartan";
+  font-weight: 700;
+  font-size: 15px;
+  color: #7c5dfa;
+  cursor: pointer;
+}
+
+h2 {
+  margin: 0;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+@media (max-width: 680px) {
+  .EditBar {
+    width: 100%;
+  }
+  .Date-Term,
+  .Three-row {
+    flex-direction: column;
+  }
 }
 
 .Project-des {
@@ -239,11 +360,12 @@ label {
 }
 
 .Add-new {
-  width: 504px;
+  width: 100%;
+  max-width: 100%;
   height: 48px;
   opacity: 1;
   border-radius: 24px;
-  background-color: var(--addNewItemBtn-bg);
+  background-color: #7c5dfa;
   border: none;
   font-family: "League Spartan";
   font-weight: 700;
@@ -251,16 +373,18 @@ label {
   line-height: 15px;
   letter-spacing: -0.25px;
   text-align: center;
-  color: #7e88c3;
+  color: #ffffff;
 }
 
 select {
-  width: 240px;
+  width: 100%;
+  max-width: 100%;
   height: 48px;
 }
 
 input:not([type="date"], .Three-row input) {
-  width: 504px;
+  width: 100%;
+  max-width: 100%;
   height: 48px;
   border-radius: 4px;
 }

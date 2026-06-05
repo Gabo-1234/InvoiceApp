@@ -20,6 +20,8 @@
     --inputBorder: 1px solid #dfe3fa;
     --h2-color: #000;
     --OptionBar-Bg: #fff;
+    width: 100%;
+    height: 100%;
 }
 
 .Dark-Bg {
@@ -39,4 +41,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    overflow-x: hidden;
 }

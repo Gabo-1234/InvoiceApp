@@ -1,16 +1,63 @@
+import { useState } from "react";
 import InvoicesHeader from "../InvoicesHeader";
 import Arrow from "../logo/ArrowIcon";
 import NoInvLogo from "../logo/NoInvLogo";
+import EditBar from "../Navigations/EditBar";
 import { Link } from "react-router-dom";
 
-const Home = ({ invoicesObject }) => {
+const Home = ({ invoicesObject, addInvoice }) => {
+  const [showNewInvoiceModal, setShowNewInvoiceModal] = useState(false);
+
+  const handleOpenNewInvoice = () => setShowNewInvoiceModal(true);
+  const handleCloseNewInvoice = () => setShowNewInvoiceModal(false);
+  const handleSaveNewInvoice = (formData, meta = {}) => {
+    const condition = meta.status || formData.condition || "draft";
+    const newInvoice = {
+      id: Date.now(),
+      tag: formData.invoiceNumber || `RT${Math.floor(Math.random() * 9000 + 1000)}`,
+      condition,
+      price: formData.items.reduce((sum, item) => sum + item.quantity * item.unitPrice, 0),
+      author: formData.billToName,
+      due: formData.invoiceDate || "",
+      date: formData.invoiceDate || "",
+      sender: {
+        street: formData.billFromStreet,
+        city: formData.billFromCity,
+        postcode: formData.billFromPostal,
+        country: formData.billFromCountry,
+      },
+      client: {
+        name: formData.billToName,
+        email: formData.billToEmail,
+        street: formData.billToStreet,
+        city: formData.billToCity,
+        postcode: formData.billToPostal,
+        country: formData.billToCountry,
+      },
+      paymentTerms: formData.paymentTerms,
+      projectDescription: formData.projectDescription,
+      items: formData.items,
+    };
+
+    addInvoice(newInvoice);
+    setShowNewInvoiceModal(false);
+  };
+
   return (
     <>
+      {showNewInvoiceModal && (
+        <EditBar
+          invoice={{}}
+          onSave={handleSaveNewInvoice}
+          onCancel={handleCloseNewInvoice}
+        />
+      )}
       <div className="invoices-container">
         {invoicesObject.length > 0 ? (
           <>
             <InvoicesHeader
               invoiceTotal={`There are ${invoicesObject.length} total invoices`}
+              onNewInvoice={handleOpenNewInvoice}
             />
 
             <div className="invoice-box__wrapper">

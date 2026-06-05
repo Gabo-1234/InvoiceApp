@@ -2,7 +2,7 @@ import FilterButton from "./FilterButton";
 import NewInvoice from "./NewInvoice";
 
 
-export default function InvoicesHeader({ invoiceTotal }) {
+export default function InvoicesHeader({ invoiceTotal, onNewInvoice }) {
     return (
         <>
             <div className="header-invoices">
@@ -13,7 +13,7 @@ export default function InvoicesHeader({ invoiceTotal }) {
 
                 <div className="filter__new-wrapper">
                     <FilterButton />
-                    <NewInvoice />
+                    <NewInvoice onClick={onNewInvoice} />
                 </div>
 
             </div>

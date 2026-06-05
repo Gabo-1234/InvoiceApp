@@ -1,5 +1,5 @@
 import "../Css/SideNavigation.css"
-import { ToggleDark } from "../Functions/ToggleDark";
+import { ToggleDark } from "../Functions/ToggleDark.js";
 
 const SideNav = () => {
     const handleDarkToggle = () => {

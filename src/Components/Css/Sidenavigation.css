@@ -1,5 +1,7 @@
 .side-nav {
-  width: clamp(46px, 24vw, 96px);
+  position: relative;
+  z-index: 1000;
+  width: 103px;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
   height: stretch;
